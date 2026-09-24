@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oak &amp; Ember Furniture</title>
+  <meta name="description" content="Handcrafted furniture for calm, lived-in homes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script type="text/javascript">
+    !async function(){try{let e="193d6e4e-4df2-4724-bfdf-99818128dc44",w="qa-api.txtbox.in",a="https://qa-app.txtbox.in",o="",n="",c="",i=3e3,d="https://das-dev.deepalgorithms.io",m=a+"/v1/conversive/button/media?file=";let apiCallMade=false;const cacheKey="sm_btn_cfg_"+e;const cacheTsKey=cacheKey+"_ts";const CACHE_TTL_MS=60*60*1000;const PLACEHOLDER_ID="sm-cb-loading-placeholder";const PLACEHOLDER_STYLE_ID="sm-cb-loading-placeholder-style";const REAL_BUTTON_ID="sm-conversive-button-container";const PLACEHOLDER_MAX_MS=15000;let placeholderObserver=null;let placeholderTimeoutId=null;let placeholderTornDown=false;function placeholderGeometry(){let position="bottom-right",size="medium",brandColor="";try{const cfg=readCachedConfig();position=cfg?.button_config?.buttonPosition||position;size=cfg?.button_config?.buttonSize||size;brandColor=cfg?.color?.brandColor||"";}catch(err){}const px=size==="large"?70:size==="small"?40:50;const [vertical,horizontal]=String(position).split("-");return{vertical,horizontal,px,brandColor};}function createPlaceholder(){if(placeholderTornDown)return;if(document.getElementById(PLACEHOLDER_ID))return;if(document.getElementById(REAL_BUTTON_ID))return;const g=placeholderGeometry();if(!document.getElementById(PLACEHOLDER_STYLE_ID)){const style=document.createElement("style");style.id=PLACEHOLDER_STYLE_ID;style.textContent="#"+PLACEHOLDER_ID+"{position:fixed;z-index:999999;border-radius:50%;pointer-events:none;opacity:0;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.15);animation:sm-cb-ph-in .2s ease-out .15s forwards;}"+"#"+PLACEHOLDER_ID+" .sm-cb-ph-ring{width:55%;height:55%;border-radius:50%;border:2px solid rgba(255,255,255,.45);border-top-color:rgba(255,255,255,.95);animation:sm-cb-ph-spin .8s linear infinite;}@keyframes sm-cb-ph-in{to{opacity:1}}@keyframes sm-cb-ph-spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){#"+PLACEHOLDER_ID+"{animation:none;opacity:1}#"+PLACEHOLDER_ID+" .sm-cb-ph-ring{animation:none}}";document.head.appendChild(style);}const ph=document.createElement("div");ph.id=PLACEHOLDER_ID;ph.setAttribute("aria-hidden","true");ph.style[g.vertical]="20px";ph.style[g.horizontal]="20px";ph.style.width=g.px+"px";ph.style.height=g.px+"px";ph.style.backgroundColor=g.brandColor||"#c8ccd4";ph.innerHTML='<div class="sm-cb-ph-ring"></div>';document.body.appendChild(ph);try{placeholderObserver=new MutationObserver(()=>{if(document.getElementById(REAL_BUTTON_ID))removePlaceholder();});placeholderObserver.observe(document.documentElement,{childList:true,subtree:true});}catch(err){}placeholderTimeoutId=setTimeout(removePlaceholder,PLACEHOLDER_MAX_MS);}function removePlaceholder(){placeholderTornDown=true;if(placeholderObserver){try{placeholderObserver.disconnect();}catch(err){}placeholderObserver=null;}if(placeholderTimeoutId){clearTimeout(placeholderTimeoutId);placeholderTimeoutId=null;}const ph=document.getElementById(PLACEHOLDER_ID);if(ph&&ph.parentNode)ph.parentNode.removeChild(ph);const style=document.getElementById(PLACEHOLDER_STYLE_ID);if(style&&style.parentNode)style.parentNode.removeChild(style);}function readCachedConfig(){try{const raw=localStorage.getItem(cacheKey);return raw?JSON.parse(raw):null;}catch(err){return null;}}function writeCachedConfig(configData){try{localStorage.setItem(cacheKey,JSON.stringify(configData));localStorage.setItem(cacheTsKey,String(Date.now()));}catch(err){}}function touchCacheTimestamp(){try{localStorage.setItem(cacheTsKey,String(Date.now()));}catch(err){}}function displayButtonAndSettle(configData){let done;try{done=Promise.resolve(displayButton(configData));}catch(err){done=Promise.resolve();}done.then(removePlaceholder,removePlaceholder);}function renderButtonConfig(configData){if(document.getElementById(configData.button_config.scriptLocation)){displayButtonAndSettle(configData);}else{const t=document.getElementsByTagName("head")[0],a=document.createElement("link"),o=document.createElement("script"),n=document.createElement("link"),c=document.createElement("script");a.rel="stylesheet";a.type="text/css";a.href=m+'conversiveButtonDev.css';a.onload=()=>{t.appendChild(o);};a.onerror=()=>{removePlaceholder();};t.appendChild(a);o.type="text/javascript";o.id=configData.button_config.scriptLocation;o.src=m+'conversiveButtonDev.js';o.onload=()=>{displayButtonAndSettle(configData);};o.onerror=()=>{removePlaceholder();};n.rel="stylesheet";n.type="text/css";c.id=configData.chatbot_config.chatbotCSS;n.href=m+'chatbot.css';n.onload=()=>{t.appendChild(c);};t.appendChild(n);c.type="text/javascript";c.id=configData.chatbot_config.chatbotJS;c.src=m+'chatbot.js';c.onload=()=>{loadChatBot(d,w,configData);};}}async function t(){if(apiCallMade)return;apiCallMade=true;o=a+"/v1/conversive/button/run/"+e+"?latitude="+n+"&longitude="+c;const cachedConfig=readCachedConfig();if(cachedConfig){renderButtonConfig(cachedConfig);}fetch(o).then((r)=>r.json()).then((resp)=>{if(!(resp&&resp.response&&"success"===resp.response.status)){removePlaceholder();return;}{const freshConfig=resp.response.data;if(!cachedConfig){renderButtonConfig(freshConfig);writeCachedConfig(freshConfig);}else if(JSON.stringify(freshConfig)!==JSON.stringify(cachedConfig)){chatbotdata=freshConfig;writeCachedConfig(freshConfig);renderButtonConfig(freshConfig);}else{touchCacheTimestamp();}}}).catch((t)=>{removePlaceholder();});}createPlaceholder();let timeoutId=setTimeout(()=>{t()},i);navigator.geolocation&&navigator.geolocation.getCurrentPosition((e=>{clearTimeout(timeoutId);n=e.coords.latitude,c=e.coords.longitude,t()}),(e=>{clearTimeout(timeoutId);t()}),{timeout:i})}catch(s){if(typeof removePlaceholder==="function"){removePlaceholder();}}}();
+  </script>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="logo">Oak <span>&amp;</span> Ember</a>
+      <nav>
+        <a href="#shop">Shop</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#shop" class="cart" aria-label="Cart">Cart (<span id="cart-count">0</span>)</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">New autumn collection</p>
+          <h1>Furniture made to be lived with.</h1>
+          <p class="lead">Solid wood, honest joinery and natural fabrics — built in small batches and designed to last for decades.</p>
+          <div class="hero-actions">
+            <a href="#shop" class="btn btn-primary">Shop the collection</a>
+            <a href="#about" class="btn btn-ghost">Our story</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <!-- Simple sofa illustration -->
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="240" width="360" height="6" rx="3" fill="var(--wood-dark)" opacity=".25"/>
+            <rect x="70" y="80" width="260" height="100" rx="24" fill="var(--sage)"/>
+            <rect x="40" y="130" width="60" height="100" rx="20" fill="var(--sage-dark)"/>
+            <rect x="300" y="130" width="60" height="100" rx="20" fill="var(--sage-dark)"/>
+            <rect x="90" y="160" width="220" height="60" rx="14" fill="var(--sage)"/>
+            <rect x="200" y="160" width="4" height="60" fill="var(--sage-dark)"/>
+            <rect x="60" y="228" width="10" height="16" rx="3" fill="var(--wood-dark)"/>
+            <rect x="330" y="228" width="10" height="16" rx="3" fill="var(--wood-dark)"/>
+            <circle cx="320" cy="60" r="26" fill="var(--terracotta)" opacity=".85"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features container">
+      <div class="feature">
+        <h3>Free delivery</h3>
+        <p>On all orders over $500, placed right in the room you want.</p>
+      </div>
+      <div class="feature">
+        <h3>100-night trial</h3>
+        <p>Live with it for a while. Not in love? We'll pick it up.</p>
+      </div>
+      <div class="feature">
+        <h3>10-year warranty</h3>
+        <p>Every frame is built to last and backed by our promise.</p>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section id="shop" class="section container">
+      <div class="section-head">
+        <h2>Bestsellers</h2>
+        <p>Our most-loved pieces this season.</p>
+      </div>
+
+      <div class="products">
+        <article class="product">
+          <div class="product-img" style="--bg: #e7ddd0">
+            <svg viewBox="0 0 200 150"><rect x="30" y="50" width="140" height="50" rx="14" fill="#8a9a7b"/><rect x="20" y="75" width="30" height="45" rx="10" fill="#6f7f61"/><rect x="150" y="75" width="30" height="45" rx="10" fill="#6f7f61"/><rect x="45" y="90" width="110" height="28" rx="8" fill="#8a9a7b"/><rect x="30" y="118" width="6" height="10" fill="#5b3f2a"/><rect x="164" y="118" width="6" height="10" fill="#5b3f2a"/></svg>
+            <span class="tag">Bestseller</span>
+          </div>
+          <div class="product-body">
+            <h3>Hollis Sofa</h3>
+            <p class="muted">3-seater · Linen, sage</p>
+            <div class="product-foot">
+              <span class="price">$1,290</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-img" style="--bg: #efe6d8">
+            <svg viewBox="0 0 200 150"><rect x="25" y="60" width="150" height="12" rx="4" fill="#9c6b43"/><rect x="38" y="72" width="8" height="55" fill="#7a5233"/><rect x="154" y="72" width="8" height="55" fill="#7a5233"/><circle cx="100" cy="45" r="12" fill="#c46a4a"/><rect x="96" y="50" width="8" height="10" fill="#6f7f61"/></svg>
+          </div>
+          <div class="product-body">
+            <h3>Arden Dining Table</h3>
+            <p class="muted">Solid oak · Seats 6</p>
+            <div class="product-foot">
+              <span class="price">$980</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-img" style="--bg: #e3e6dc">
+            <svg viewBox="0 0 200 150"><rect x="70" y="25" width="60" height="60" rx="10" fill="#c46a4a"/><rect x="62" y="80" width="76" height="20" rx="6" fill="#b25a3c"/><rect x="70" y="100" width="6" height="30" fill="#5b3f2a"/><rect x="124" y="100" width="6" height="30" fill="#5b3f2a"/></svg>
+            <span class="tag">New</span>
+          </div>
+          <div class="product-body">
+            <h3>Maren Lounge Chair</h3>
+            <p class="muted">Walnut · Wool bouclé</p>
+            <div class="product-foot">
+              <span class="price">$640</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-img" style="--bg: #ece3d6">
+            <svg viewBox="0 0 200 150"><rect x="50" y="30" width="100" height="95" rx="4" fill="#9c6b43"/><rect x="58" y="38" width="84" height="24" rx="2" fill="#b98457"/><rect x="58" y="66" width="84" height="24" rx="2" fill="#b98457"/><rect x="58" y="94" width="84" height="24" rx="2" fill="#b98457"/><rect x="94" y="48" width="12" height="3" fill="#5b3f2a"/><rect x="94" y="76" width="12" height="3" fill="#5b3f2a"/><rect x="94" y="104" width="12" height="3" fill="#5b3f2a"/></svg>
+          </div>
+          <div class="product-body">
+            <h3>Tove Dresser</h3>
+            <p class="muted">Ash · 3 drawers</p>
+            <div class="product-foot">
+              <span class="price">$720</span>
+              <button class="btn btn-small add-to-cart">Add to cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Rooms -->
+    <section id="rooms" class="section container">
+      <div class="section-head">
+        <h2>Shop by room</h2>
+      </div>
+      <div class="rooms">
+        <a href="#shop" class="room" style="--bg: var(--sage)"><span>Living room</span></a>
+        <a href="#shop" class="room" style="--bg: var(--terracotta)"><span>Dining</span></a>
+        <a href="#shop" class="room" style="--bg: var(--wood)"><span>Bedroom</span></a>
+        <a href="#shop" class="room" style="--bg: var(--ink)"><span>Office</span></a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="container about-inner">
+        <h2>Made slowly, on purpose.</h2>
+        <p>Oak &amp; Ember started in a two-person workshop in 2014. Today our team of twenty makers still builds every piece by hand, using sustainably sourced hardwoods and finishes free from harsh chemicals.</p>
+        <div class="stats">
+          <div><strong>12k+</strong><span>Homes furnished</span></div>
+          <div><strong>100%</strong><span>FSC-certified wood</span></div>
+          <div><strong>4.9★</strong><span>Average review</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Newsletter -->
+    <section id="contact" class="section container contact">
+      <div>
+        <h2>Visit our showroom</h2>
+        <p>214 Maple Street, Portland, OR<br>Tue–Sun, 10am–6pm</p>
+        <p><a href="mailto:hello@example.com">hello@example.com</a> · (555) 123-4567</p>
+      </div>
+      <form class="newsletter" onsubmit="event.preventDefault(); this.innerHTML = '<p class=&quot;thanks&quot;>Thanks — you\'re on the list!</p>';">
+        <label for="email">Get 10% off your first order</label>
+        <div class="field">
+          <input id="email" type="email" placeholder="you@example.com" required>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Oak &amp; Ember Furniture. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Tiny cart counter
+    let count = 0;
+    const countEl = document.getElementById('cart-count');
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
+      btn.addEventListener('click', () => {
+        countEl.textContent = ++count;
+        btn.textContent = 'Added ✓';
+        setTimeout(() => (btn.textContent = 'Add to cart'), 1200);
+      });
+    });
+  </script>
+</body>
+</html>
